@@ -1,0 +1,12 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title> {{review.displayName}} &nbsp;&nbsp;&nbsp; <ngb-rating [(rate)]="review.rating"></ngb-rating></mat-card-title>
+  </mat-card-header>
+  <!-- <ngb-rating [(rate)]="review.rating"></ngb-rating> -->
+  <mat-card-content>
+    <p>
+      {{review.comment}}
+    </p>
+    <span>{{review.reviewTime}}</span>
+  </mat-card-content>
+</mat-card>

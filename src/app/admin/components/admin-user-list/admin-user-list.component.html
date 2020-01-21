@@ -1,0 +1,46 @@
+<!-- <div *ngIf=" users._data._value">
+  <app-table [dataSource]="users" [columns]="columns"></app-table>
+</div> -->
+
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="users" matSort>
+
+    <!-- name Column -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Name"> {{row.userName}} </mat-cell>
+    </ng-container>
+
+    <!-- Role Column -->
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Role"> {{row.role}} </mat-cell>
+    </ng-container>
+
+    <!-- balence Column -->
+    <ng-container matColumnDef="balance">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Balance </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Balance">
+        <input class="form-control round  col-md-3 col-lg-4" name="input" type="number" min="1"
+          [(ngModel)]="row.balance.forSending" pattern="[0-9]*" />
+      </mat-cell>
+
+    </ng-container>
+    <!-- action column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+      <td mat-cell *matCellDef="let element" data-label="Action">
+        <button class="btn btn-primary" (click)="onUpdateBalence(element.key,element)">Update Balence</button>
+
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
